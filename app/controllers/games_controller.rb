@@ -29,7 +29,7 @@ class GamesController < ApplicationController
   end
 
   def update
-    @game = Game.update(game_params)
+    @game = Game.update(state: params[:state])
     @game.save
     redirect_to game_path(@game)
   end
