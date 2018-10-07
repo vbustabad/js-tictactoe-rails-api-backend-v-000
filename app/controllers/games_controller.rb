@@ -26,13 +26,13 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
-  end 
+  end
 
   def update
     @game = Game.update(game_params)
     @game.save
     redirect_to game_path(@game)
-  end 
+  end
 
   private
 
