@@ -1,6 +1,8 @@
 require 'pry'
 
 class GamesController < ApplicationController
+  before_action :set_game, only: [:show, :edit, :update]
+
   def index
     @games = Game.all
     render json: @games
@@ -16,16 +18,13 @@ class GamesController < ApplicationController
   end
 
   def show
-    @game = Game.find(params[:id])
     render json: @game
   end
 
   def edit
-    @game = Game.find(params[:id])
   end
 
   def update
-    @game = Game.find(params[:id])
     @game = Game.update(state: game_params)
     @game.save
     redirect_to game_path(@game)
