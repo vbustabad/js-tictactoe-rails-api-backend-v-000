@@ -26,7 +26,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    @game = Game.update(id: self.id, state: params[:state])
+    @game = Game.update(id: params[:id], state: params[:state])
     binding.pry
     @game.save
     redirect_to game_path(@game)
