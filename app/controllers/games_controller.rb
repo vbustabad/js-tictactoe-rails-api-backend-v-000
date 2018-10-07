@@ -11,7 +11,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    Game.create(state: params[:state])
+    Game.create(game_params)
     redirect_to games_path
   end
 
@@ -26,7 +26,7 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    @game = Game.update(state: params[:state])
+    @game = Game.update(game_params)
     @game.save
     redirect_to game_path(@game)
   end
