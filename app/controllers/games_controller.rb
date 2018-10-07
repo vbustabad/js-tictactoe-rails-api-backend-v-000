@@ -9,6 +9,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
+    render json: @game
   end
 
   def create
@@ -23,6 +24,7 @@ class GamesController < ApplicationController
 
   def edit
     @game = Game.find(params[:id])
+    render json: @game
   end
 
   def update
